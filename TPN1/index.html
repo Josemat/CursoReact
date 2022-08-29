@@ -10,43 +10,55 @@
   <body>
     <section>
       <div>
-        <form class="form">
-          <h1>Seguro El inseguro(?</h1>
+        <form class="form" id="form">
+          <h1>Seguro no pagamos Coop.</h1>
           <div class="opcion">
             <label for="">Nombre</label>
-            <input type="text" name="nombre" id="" placeholder="Nombre" />
+            <input type="text" name="nombre" id="nombre" placeholder=" Ingresa un nombre" />
           </div>
           <div class="opcion">
             <label for="">Apellido</label>
-            <input type="text" name="Apellido" id="" placeholder="Apellido" />
+            <input
+              type="text"
+              name="Apellido"
+              id="apellido"
+              placeholder=" Apellido"
+            />
           </div>
           <div class="opcion">
             <label for="">DNI</label>
-            <input type="number" name="DNI" id="" placeholder="DNI" />
+            <input type="number" name="DNI" id="dni" placeholder=" DNI/Cédula/Pasaporte" />
           </div>
           <div class="opcion">
             <label for="">Email</label>
-            <input type="email" name="Email" id="" placeholder="Email" />
+            <input type="email" name="Email" id="email" placeholder=" Email" />
           </div>
           <div class="opcion">
             <label for="">Telefono</label>
-            <input type="number" name="Telefono" id="" placeholder="Telefono" />
-          </div>
-          <div class="opcion">
-            <label for="">Nombre</label>
-            <input type="text" name="nombre" id="" placeholder="Nombre" />
+            <input
+              type="number"
+              name="Telefono"
+              id="telefono"
+              placeholder=" Telefono"
+            />
           </div>
           <div class="opcion">
             <label for="tipoSeguro">Selecciona un tipo</label>
             <select name="" id="tipoSeguro">
-              <option value="basico">Basico</option>
-              <option value="intermedio">Intermedio</option>
-              <option value="premium">Premium</option>
+              <option value="0" selected disabled>Selecciona tipo</option>
+              <option value="$500">Basico</option>
+              <option value="$1000">Intermedio</option>
+              <option value="$1500">Premium</option>
             </select>
           </div>
-          <button type="submit">Enviar</button>
+          <div class="resultado"></div>
+          <div class="botonCentrado">
+            <button type="submit">Cotizar</button>
+          </div>
         </form>
       </div>
     </section>
+    
+    <script src="script.js"></script>
   </body>
 </html>
