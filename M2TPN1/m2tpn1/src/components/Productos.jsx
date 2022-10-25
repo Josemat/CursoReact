@@ -17,6 +17,7 @@ const Productos = () => {
     }, [busqueda])
     return (<>
         <Busqueda />
+        {busqueda && <h2>Su busqueda de "{busqueda}" dio los siguientes resultados:</h2>}
         <div className='grilla'>
             {productos && productos.map(element => <Producto data={element} key={element.id} />)}
         </div>
