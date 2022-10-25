@@ -19,19 +19,69 @@ img {
   border-radius: 5px;
   display: block;
   margin: auto;
-  width: 200px;
+  min-width: 200px;
+  padding: 5px;
 }
-
+a{
+  text-decoration: none;
+}
+a h1{
+  text-align: center;
+  color: black;
+}
+a p{
+  color: black;
+  text-align: center;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(175, 176, 176);
+}
+h2{
+  text-align: center;
+}
 h3,
 .descripcion {
   text-align: center;
 }
 button {
+  border-radius: 5px;
+  margin-top: 20px;
   width: 100%;
   padding: 10px;
   font-size: large;
 }
-
+form{
+  margin: 20px 0px;
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+}
+input{
+  border: solid #ddd 1px;
+  padding: 15px;
+  border-radius: 4px;
+}
+ul{
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+}
+li{
+  margin: 0px 5px;
+}
+.formLogin{
+  /* style={{ display: 'block', padding: '10px', margin: '15px' }} */
+  display: flex;
+  padding: 10px;
+  margin: 15px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.formLogin label{
+  padding: 8px;
+}
 .cantidad,
 .sku {
   text-align: end;
