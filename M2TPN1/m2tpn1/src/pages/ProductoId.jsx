@@ -10,7 +10,7 @@ const ProductoId = () => {
             <h2>{producto.title}</h2>
             {producto.pictures && producto.pictures.map(res => <img key={res.id} src={res.url} />)}
             <p>Garantía: <small>{producto.warranty}</small></p>
-            <p>Precio:$ {producto.price}</p>
+            <p>Precio: ${producto.price}</p>
             <p><small>Disponibles: {producto.available_quantity}</small></p>
             <p><small>Vendidos: {producto.sold_quantity}</small></p>
             <button onClick={() => alert(`Felicidades, acabas de comprar ${producto.title}`)}>Comprar</button>
