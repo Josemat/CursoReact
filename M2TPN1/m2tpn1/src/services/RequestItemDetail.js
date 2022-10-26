@@ -1,18 +1,19 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react';
 
-const RequestItemDetail = (id='123') => {
-    const URL = `https://api.mercadolibre.com/items/${id}/`
-    const [resultado, setResultado] = useState('')
+const RequestItemDetail = (id = '123') => {
+  const URL = `https://api.mercadolibre.com/items/${id}/`;
+  const [resultado, setResultado] = useState('');
 
-    
-    useEffect(()=>{
-        try {
-            fetch(URL).then(res=>res.json()).then(res=> setResultado(res))
-        } catch (error) {
-            console.log(error)
-        }
-    },[])
-  return resultado
-}
+  useEffect(() => {
+    try {
+      fetch(URL)
+        .then((res) => res.json())
+        .then((res) => setResultado(res));
+    } catch (error) {
+      console.log(error);
+    }
+  }, [URL]);
+  return resultado;
+};
 
-export default RequestItemDetail
+export default RequestItemDetail;

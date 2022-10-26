@@ -8,7 +8,7 @@ const ProductoId = () => {
     return (
         <div>
             <h2>{producto.title}</h2>
-            {producto.pictures && producto.pictures.map(res => <img key={res.id} src={res.url} />)}
+            {producto.pictures && producto.pictures.map(res => <img key={res.id} alt={res.title} src={res.url} />)}
             <p>Garantía: <small>{producto.warranty}</small></p>
             <p>Precio: ${producto.price}</p>
             <p><small>Disponibles: {producto.available_quantity}</small></p>
