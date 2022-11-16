@@ -9,11 +9,12 @@ const Navbare = () => {
         <Navbar bg="dark" variant="dark">
             <Container>
 
-                <Navbar.Brand href="#home">Tienda</Navbar.Brand>
+                <Navbar.Brand as={Link} to="/">🏠</Navbar.Brand>
                 <Nav>
                     <Nav.Link as={Link} to="/">Home</Nav.Link>
                     <Nav.Link to="/login" as={Link}>Login</Nav.Link>
                     <Nav.Link to="registro" as={Link}>Registro</Nav.Link>
+                    <Nav.Link to="productos/alta" as={Link}>Alta producto</Nav.Link>
                 </Nav>
 
             </Container>

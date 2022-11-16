@@ -8,6 +8,7 @@ import Registro from './pages/Registro';
 import Navbar from './layout/Navbar';
 import firestore from './config/Firestore';
 import Nav from 'react-bootstrap/Nav';
+import AltaProducto from './pages/AltaProducto';
 
 function App() {
   console.log(firestore);
@@ -23,7 +24,7 @@ function App() {
                 to="/"
                 style={{ textDecoration: 'none', color: 'black' }}
               >
-                Tienda de Productos
+                Tienda de Productos ML
               </Nav.Link>
             </h1>
           </Nav.Item>
@@ -34,6 +35,7 @@ function App() {
           <Route path="/sites/:id" element={<ProductoId />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registro" element={<Registro />} />
+          <Route path="/productos/alta" element={<AltaProducto />} />
         </Routes>
       </Router>
     </>

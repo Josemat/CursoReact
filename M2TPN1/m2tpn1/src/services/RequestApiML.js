@@ -1,11 +1,13 @@
-export const RequestApiML = (busqueda = 'mouse') => {
-  const URL = `https://api.mercadolibre.com/sites/MLA/search?q=${busqueda}`;
+import Firestore from '../config/Firestore'
+export const RequestApiML = async (busqueda = 'mouse') => {
+  // const URL = `https://api.mercadolibre.com/sites/MLA/search?q=${busqueda}`;
 
   try {
-    const resu = fetch(URL)
-      .then((res) => res.json())
-      .then((res) => res.results);
-    return resu;
+    const querySnapshot = await Firestore.firestore().collection('producto').get()
+    // const resu = fetch(URL)
+    //   .then((res) => res.json())
+    //   .then((res) => res.results);
+    return querySnapshot.docs;
   } catch (error) {
     console.log(error);
   }

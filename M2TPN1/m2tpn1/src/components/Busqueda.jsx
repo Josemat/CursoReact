@@ -12,14 +12,14 @@ const Busqueda = () => {
         navigate(`/busqueda/${busqueda}`)
     };
     return (
-        <Form className="mb-3 d-flex flex-row" onSubmit={handleSubmit}>
-            <Form.Group className='flex-fill'>
-                <Form.Control type="text" placeholder="Ingrese la búsqueda" value={busqueda || ""}
+        <Form className="mb-3 d-flex flex-row justify-content-center" onSubmit={handleSubmit}>
+            <Form.Group className='w-50'>
+                <Form.Control className='p-3' type="text" placeholder="Ingrese la búsqueda" value={busqueda || ""}
                     onChange={(e) => {
                         setBusqueda(e.target.value);
                     }} />
             </Form.Group>
-            <Button type='submit'>Buscar</Button>
+            <Button className='' type='submit'>Buscar 🔎</Button>
         </Form>
     );
 }

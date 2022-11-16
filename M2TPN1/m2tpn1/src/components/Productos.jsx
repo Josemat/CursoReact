@@ -18,8 +18,8 @@ const Productos = () => {
     return (<>
         <Busqueda />
         {busqueda && <h2>Su busqueda de "{busqueda}" dio los siguientes resultados:</h2>}
-        <div className='grilla'>
-            {productos && productos.map(element => <Producto data={element} key={element.id} />)}
+        <div className='d-flex flex-row flex-wrap justify-content-center gap-3'>
+            {productos && productos.map(element => <Producto data={element.data()} id={element.id} key={element.id} />)}
         </div>
     </>
     )
