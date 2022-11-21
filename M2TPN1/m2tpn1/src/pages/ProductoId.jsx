@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import RequestItemDetail from '../services/RequestItemDetail'
 import Container from 'react-bootstrap/Container'
-import Carousel from 'react-bootstrap/Carousel'
 import Button from 'react-bootstrap/Button'
-import Busqueda from '../components/Busqueda'
 
 const ProductoId = () => {
     const { id } = useParams()
     const [producto, setProducto] = useState({})
+    const navigate = useNavigate()
     useEffect(() => {
         const result = async () => {
             const prod = await RequestItemDetail(id)
@@ -17,14 +16,18 @@ const ProductoId = () => {
         }
         result()
     }, [id])
+
+    function compra() {
+        producto.id = id
+        localStorage.setItem('productos', JSON.stringify(producto))
+    }
     return (
         <Container>
 
-            <Busqueda />
             <h2 className='m-4'>{producto.title}</h2>
 
             <div className='row justify-content-evenly'>
-                <div className='col-md-8'>
+                <div className='col-md-8 overflow-hidden'>
 
                     <img
                         className="rounded d-block"
@@ -37,7 +40,8 @@ const ProductoId = () => {
                     <h4>Descripción:</h4>
                     <h5>{producto.descripcion}</h5>
                     <h4>Precio: ${producto.price}</h4>
-                    <Button className="mt-5 w-100" variant='success' onClick={() => alert(`Felicidades, acabas de comprar ${producto.title}`)}>Comprar</Button>
+                    <Button className="mt-5 w-100" onClick={() => compra()} as={Link} to={'/checkout'} variant='success'>Comprar</Button>
+
                 </div>
             </div>
 

@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import Firestore from '../config/Firestore'
 
 const RequestItemDetail = async (id) => {
@@ -12,7 +11,7 @@ const RequestItemDetail = async (id) => {
       const querySnapshot = await Firestore.firestore().doc(`producto/${id}`).get()
       return querySnapshot
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   // }, [URL]);
 };

@@ -9,6 +9,6 @@ export const RequestApiML = async (busqueda = 'mouse') => {
     //   .then((res) => res.results);
     return querySnapshot.docs;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };

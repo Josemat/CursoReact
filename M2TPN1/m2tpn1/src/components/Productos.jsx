@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Producto from './Producto';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import Busqueda from './Busqueda';
+import Spinner from 'react-bootstrap/Spinner'
 
 
 
@@ -16,10 +16,15 @@ const Productos = () => {
             setProductos(asd))
     }, [busqueda])
     return (<>
-        <Busqueda />
-        {busqueda && <h2>Su busqueda de "{busqueda}" dio los siguientes resultados:</h2>}
+
         <div className='d-flex flex-row flex-wrap justify-content-center gap-3'>
-            {productos && productos.map(element => <Producto data={element.data()} id={element.id} key={element.id} />)}
+            {productos ?
+                productos.map(element => <Producto data={element.data()} id={element.id} key={element.id} />)
+                :
+                <Spinner animation="border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </Spinner>
+            }
         </div>
     </>
     )
