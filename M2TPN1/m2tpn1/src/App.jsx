@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import ProductoId from './pages/ProductoId';
 import Productos from './components/Productos';
@@ -18,8 +18,8 @@ function App() {
         <AuthProvider>
 
           <Navbar />
-          <h1 className='text-center' style={{ textDecoration: 'none', color: 'black' }}>
-            Tienda
+          <h1 className='text-center m-5' style={{ textDecoration: 'none', color: 'black' }}>
+            Tienda de Emmanuel en Firebase
           </h1>
 
           <Routes>

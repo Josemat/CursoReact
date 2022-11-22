@@ -1,5 +1,5 @@
 import Firestore from '../config/Firestore'
-export const RequestApiML = async (busqueda = 'mouse') => {
+export const RequestApiML = async () => {
   // const URL = `https://api.mercadolibre.com/sites/MLA/search?q=${busqueda}`;
 
   try {

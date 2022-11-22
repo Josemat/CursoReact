@@ -29,19 +29,17 @@ const ModificarProducto = () => {
             }
         }
         result()
-    }, [id])
+    }, [id, setValue])
     const onSubmit = async data => {
         try {
             const res = await firebase.firestore().doc(`producto/${id}`).set(data)
-
+            if (!res) return
             setAlerta(true)
             setVariante('success')
+            setTimeout(() => {
+                navigate('/')
+            }, 3000);
 
-            {
-                setTimeout(() => {
-                    navigate('/')
-                }, 3000);
-            }
 
         } catch (error) {
             setAlerta(true)

@@ -64,14 +64,14 @@ const Login = () => {
                     </Form.Text>
                 </Form.Group>
 
-                <div className='d-flex'>
-                    <Button className='w-50' variant="primary" type="submit" >
-                        Login
-                    </Button>
-                    <Button as={Link} to="/registro" className='mx-1 w-50' variant="primary" >
-                        Registrarse
-                    </Button>
-                </div>
+
+                <Button className='w-100' variant="success" type="submit" >
+                    Login
+                </Button>
+                <p className='mt-4'>No tienes una cuenta? registrate!</p>
+                <Button as={Link} to="/registro" className='mx-1 w-100' variant="primary" >
+                    Registrarse
+                </Button>
             </Form>
         </div>
     </>

@@ -75,9 +75,9 @@ const Registro = () => {
                     <Form.Control type="password" placeholder="******" />
                 </Form.Group>
                 <div className='d-block'>
-                    <Button className='w-50 my-2' variant="primary" type="submit">Crear usuario</Button>
-                    <p><small>Ya tienes cuenta? ingresa! </small></p>
-                    <Button as={Link} to="/login" className=' w-50' variant="success" >
+                    <Button className='w-100 my-2' variant="primary" type="submit">Crear usuario</Button>
+                    <p className='mt-2 '><small>Ya tienes cuenta? ingresa! </small></p>
+                    <Button as={Link} to="/login" className='w-100' variant="success" >
                         Log in
                     </Button>
                 </div>

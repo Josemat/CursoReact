@@ -44,7 +44,7 @@ const Checkout = () => {
                         </Card.Body>
                     </Card>
                     <h4 className='text-end mt-3'>Total: ${productos.price}</h4>
-                    <Button onClick={() => compraRealizada(productos.title)}>Finalizar compra</Button>
+                    <Button variant='success' className='w-100 p-3' onClick={() => compraRealizada(productos.title)}>Finalizar compra</Button>
                 </div>
                 :
                 <div className='my-5'>

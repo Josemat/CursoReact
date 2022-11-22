@@ -1,28 +1,42 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import RequestItemDetail from '../services/RequestItemDetail'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
+import { useContext } from 'react'
+import { AuthContext } from '../context/AuthContext'
+import Alerta from '../components/Alert'
 
 const ProductoId = () => {
     const { id } = useParams()
     const [producto, setProducto] = useState({})
     const navigate = useNavigate()
+    const context = useContext(AuthContext)
+    const [alert, setAlert] = useState(false)
+
     useEffect(() => {
         const result = async () => {
             const prod = await RequestItemDetail(id)
             if (prod) setProducto(prod.data())
-
         }
         result()
     }, [id])
 
     function compra() {
+        if (!context.user.name) {
+            setAlert(true)
+            setTimeout(() => {
+                navigate('/login')
+            }, 3000);
+            return
+        }
         producto.id = id
         localStorage.setItem('productos', JSON.stringify(producto))
+        navigate('/checkout')
     }
     return (
         <Container>
+            {alert && <Alerta variant='danger' text={'Necesitas tener una cuenta para realizar la compra'} />}
 
             <h2 className='m-4'>{producto.title}</h2>
 
@@ -40,7 +54,7 @@ const ProductoId = () => {
                     <h4>Descripción:</h4>
                     <h5>{producto.descripcion}</h5>
                     <h4>Precio: ${producto.price}</h4>
-                    <Button className="mt-5 w-100" onClick={() => compra()} as={Link} to={'/checkout'} variant='success'>Comprar</Button>
+                    <Button className="mt-5 w-100" onClick={() => compra()} variant='success'>Comprar</Button>
 
                 </div>
             </div>

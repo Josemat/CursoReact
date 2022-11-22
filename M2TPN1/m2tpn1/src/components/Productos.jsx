@@ -1,30 +1,30 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { RequestApiML } from '../services/RequestApiML';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import Producto from './Producto';
-import { useEffect } from 'react';
-import { useState } from 'react';
 import Spinner from 'react-bootstrap/Spinner'
-
+import Row from 'react-bootstrap/Row';
 
 
 const Productos = () => {
-    const { busqueda } = useParams()
+    // const { busqueda } = useParams()
     const [productos, setProductos] = useState('')
     useEffect(() => {
-        RequestApiML(busqueda).then(asd =>
+        RequestApiML().then(asd =>
             setProductos(asd))
-    }, [busqueda])
+    }, [setProductos])
     return (<>
 
-        <div className='d-flex flex-row flex-wrap justify-content-center gap-3'>
-            {productos ?
-                productos.map(element => <Producto data={element.data()} id={element.id} key={element.id} />)
-                :
-                <Spinner animation="border" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                </Spinner>
-            }
+        <div >
+            <Row md={2} lg={3} xxl={4} className="g-2">
+                {productos ?
+                    productos.map(element => <Producto data={element.data()} id={element.id} key={element.id} />)
+                    :
+                    <Spinner animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                }
+            </Row>
         </div>
     </>
     )
